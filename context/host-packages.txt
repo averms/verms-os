@@ -13,6 +13,7 @@ google-noto-fonts-all-vf
 kitty
 libva-utils
 man-pages-posix
+netcat
 smartmontools
 sushi
 syncthing
