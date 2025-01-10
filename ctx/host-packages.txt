@@ -1,0 +1,20 @@
+# Xorg
+gnome-session-xsession
+xorg-x11-drivers
+xorg-x11-xinit
+
+# Packages I want on the host
+code
+distrobox
+gcc
+gnome-shell-extension-appindicator
+gnome-shell-extension-auto-move-windows
+google-noto-fonts-all-vf
+kitty
+libva-utils
+man-pages-posix
+smartmontools
+sushi
+syncthing
+tailscale
+virt-manager

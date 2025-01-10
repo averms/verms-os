@@ -1,0 +1,44 @@
+name: ci
+on:
+  schedule:
+    - cron: "44 6 * * 5"
+  workflow_dispatch: null
+
+env:
+  MY_IMAGE_NAME: "${{ github.event.repository.name }}"
+  IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}-${{ inputs.brand_name}}-${{ inputs.stream_name }}
+  cancel-in-progress: true
+
+jobs:
+  build-custom:
+    name: Build and push image to GHCR
+    runs-on: ubuntu-24.04
+
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        id: build_image
+        shell: bash
+        run: |
+          ./go.sh build-verms
+
+      - name: Push image to GHCR
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: verms-os
+          registry: ${{ env.IMAGE_REGISTRY }}
+          tags: latest
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+          extra-args: |
+            --compression-format=zstd

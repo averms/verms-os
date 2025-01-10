@@ -1,0 +1,13 @@
+[customizations.installer.kickstart]
+contents = """
+# Prevents unecessary files getting created in /etc/firewalld/zones/.
+firewall --use-system-defaults
+
+# Until https://github.com/osbuild/bootc-image-builder/issues/780 is fixed.
+%post
+bootc switch --mutate-in-place ghcr.io/averms/verms-os:latest
+%end
+"""
+
+[customizations.installer.modules]
+enable = ["org.fedoraproject.Anaconda.Modules.Localization"]

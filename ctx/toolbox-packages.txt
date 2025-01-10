@@ -1,0 +1,56 @@
+# Match fonts on host
+google-noto-fonts-all-vf
+
+# Needed for distrobox
+glibc-locale-source
+
+# Utilities
+age
+b3sum
+bsdtar
+cloc
+cmake
+dua-cli
+fd-find
+fdkaac
+flac
+fzf
+git-email
+hyperfine
+iperf3
+jq
+ldns-utils
+mat2
+mbuffer
+mediainfo
+moreutils
+neovim
+ninja-build
+nnn
+opus-tools
+oxipng
+parallel
+qpdf
+qrencode
+ripgrep
+rsgain
+sox
+sqlite
+strace
+xxd
+
+# Programming
+clang
+clang-tools-extra
+golang
+lldb
+mold
+rustup
+shellcheck
+shfmt
+uv
+valgrind
+
+# GUI
+code
+gnome-keyring
