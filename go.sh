@@ -33,14 +33,14 @@ help() {
 }
 
 _oci() {
-    podman build --pull=newer --build-arg MAJOR_VERSION=41 "$@"
+    podman build --pull=always --build-arg MAJOR_VERSION=41 "$@"
 }
 
 _image() {
     local config="$1"
     shift
 
-    sudo podman run --pull=newer --rm -it --privileged --security-opt label=disable \
+    sudo podman run --pull=always --rm -it --privileged --security-opt label=disable \
         -v ./output:/output \
         -v "${config}:/config.toml:ro" \
         -v /var/lib/containers/storage:/var/lib/containers/storage \
