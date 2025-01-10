@@ -23,7 +23,7 @@ sed -i '/^enabled=0/{s/0/1/}' /etc/yum.repos.d/google-chrome.repo
 sed -i '/^enabled=1/{s/1/0/}' /etc/yum.repos.d/fedora-cisco-openh264.repo
 
 # RPM Fusion and VS Code
-dnf config-manager addrepo --from-repofile /ctx/sys_files/vscode.repo
+dnf config-manager addrepo --from-repofile context/etc/yum.repos.d/vscode.repo
 dnf -y install \
     "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$1.noarch.rpm" \
     "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$1.noarch.rpm"
@@ -36,7 +36,7 @@ dnf -y install --allowerasing ffmpeg-libs
 dnf -y swap OpenCL-ICD-Loader ocl-icd
 
 # Host packages
-grep -Ev '^#|^$' /ctx/host-packages.txt | xargs -d '\n' dnf -y install
+grep -Ev '^#|^$' context/host-packages.txt | xargs -d '\n' dnf -y install
 
 # Install gdb without pulling in dnf4. Needed for coredumpctl.
 dnf -y install --setopt=install_weak_deps=False gdb
@@ -58,14 +58,9 @@ rmdir /opt/google /opt
 mv /opt.bk /opt
 
 # Configuration
-echo 'surya' >/etc/hostname
 systemctl enable tailscaled.service
 systemctl enable rpm-ostreed-automatic.timer
-cp ctx/sys_files/rpm-ostreed.conf /etc/
-cp ctx/sys_files/verms_sudo /etc/sudoers.d/
-cp ctx/sys_files/trusted.xml /etc/firewalld/zones/
-cp ctx/sys_files/verms_dnf5.conf /etc/dnf/dnf5-aliases.d/
-mkdir /etc/sysusers.d && cp ctx/sys_files/linuxbrew.conf /etc/sysusers.d/
+cp --no-target-directory -vR context/etc /etc
 
 dnf -y autoremove
 dnf clean all
