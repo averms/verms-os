@@ -1,0 +1,10 @@
+# Needed for coredumpctl. Don't want to bring in dnf4.
+gdb
+
+# QEMU virtualization with as few extra packages as possible. See
+# https://libvirt.org/kbase/rpm-deployment.html
+libvirt-daemon-config-network
+libvirt-daemon-driver-qemu
+libvirt-daemon-driver-storage-disk
+qemu-kvm
+virt-manager

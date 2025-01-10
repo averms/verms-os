@@ -36,14 +36,10 @@ dnf -y swap --allowerasing ffmpeg-free ffmpeg-libs
 dnf -y swap OpenCL-ICD-Loader ocl-icd
 
 # Host packages
-grep -Ev '^#|^$' context/host-packages.txt | xargs -d '\n' dnf -y install
-
-# Virtualization with virt-manager and qemu. See https://libvirt.org/kbase/rpm-deployment.html
-dnf -y install --setopt=install_weak_deps=False \
-    virt-manager libvirt-daemon-config-network libvirt-daemon-driver-qemu qemu-kvm
-
-# Install gdb without pulling in dnf4. Needed for coredumpctl.
-dnf -y install --setopt=install_weak_deps=False gdb
+grep -Ev '^#|^$' context/host.txt |
+    xargs -d '\n' dnf -y install
+grep -Ev '^#|^$' context/host-no-weak-deps.txt |
+    xargs -d '\n' dnf -y --setopt install_weak_deps=False install
 
 # Install google-chrome-stable. Taken from
 # https://github.com/travier/fedora-sysexts/blob/047ab6b890/google-chrome/Containerfile
