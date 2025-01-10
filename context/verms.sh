@@ -38,6 +38,10 @@ dnf -y swap OpenCL-ICD-Loader ocl-icd
 # Host packages
 grep -Ev '^#|^$' context/host-packages.txt | xargs -d '\n' dnf -y install
 
+# Minimal virtualization with virt-manager and qemu. See https://libvirt.org/kbase/rpm-deployment.html
+dnf -y install --setopt=install_weak_deps=False \
+    virt-manager libvirt-daemon-config-network libvirt-daemon-driver-qemu qemu-kvm
+
 # Install gdb without pulling in dnf4. Needed for coredumpctl.
 dnf -y install --setopt=install_weak_deps=False gdb
 

@@ -17,4 +17,3 @@ smartmontools
 sushi
 syncthing
 tailscale
-virt-manager
