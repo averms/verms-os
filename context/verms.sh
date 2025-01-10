@@ -38,7 +38,7 @@ dnf -y swap OpenCL-ICD-Loader ocl-icd
 # Host packages
 grep -Ev '^#|^$' context/host-packages.txt | xargs -d '\n' dnf -y install
 
-# Minimal virtualization with virt-manager and qemu. See https://libvirt.org/kbase/rpm-deployment.html
+# Virtualization with virt-manager and qemu. See https://libvirt.org/kbase/rpm-deployment.html
 dnf -y install --setopt=install_weak_deps=False \
     virt-manager libvirt-daemon-config-network libvirt-daemon-driver-qemu qemu-kvm
 
@@ -64,7 +64,8 @@ mv /opt.bk /opt
 # Configuration
 systemctl enable tailscaled.service
 systemctl enable rpm-ostreed-automatic.timer
-# Copy using permissions of target directory unlike Dockerfile COPY.
+# Copy without overwriting permissions for already existing directories unlike
+# Dockerfile COPY.
 cp --no-target-directory -vR context/etc /etc
 
 dnf -y autoremove

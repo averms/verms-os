@@ -10,6 +10,11 @@ Install Fedora Silverblue first. Then upgrade and reboot. Then run
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/averms/verms-os:latest
 ```
 
+If you would like to build a qcow2 image for running under qemu, use
+`./go.sh build-qcow2`. If you would like to build an ISO for interactive installation
+on bare-metal, use `./go.sh build-iso`. These rely on the still unstable
+bootc-image-builder, so your mileage may vary.
+
 ## References
 
 I learned a lot from reading the code of the following projects:
