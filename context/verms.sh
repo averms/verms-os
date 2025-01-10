@@ -7,7 +7,7 @@ ln --no-target-directory -s ../run /var/run
 # Fix package reasons
 dnf -y mark dependency '*' >/dev/null
 dnf rq --leaves | xargs -d '\n' dnf -y mark user >/dev/null
-dnf -y mark user bootc rpm-ostree
+dnf -y mark user bootc rpm-ostree qemu-user-static-aarch64
 
 # Removals
 dnf -y remove \
@@ -30,7 +30,7 @@ dnf -y install \
 
 # Codecs
 dnf -y swap mesa-va-drivers mesa-va-drivers-freeworld
-dnf -y install --allowerasing ffmpeg-libs
+dnf -y swap --allowerasing ffmpeg-free ffmpeg-libs
 
 # Mitigate https://bugzilla.redhat.com/show_bug.cgi?id=2332429
 dnf -y swap OpenCL-ICD-Loader ocl-icd
@@ -60,6 +60,7 @@ mv /opt.bk /opt
 # Configuration
 systemctl enable tailscaled.service
 systemctl enable rpm-ostreed-automatic.timer
+# Copy using permissions of target directory unlike Dockerfile COPY.
 cp --no-target-directory -vR context/etc /etc
 
 dnf -y autoremove
