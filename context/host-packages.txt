@@ -15,6 +15,7 @@ libva-utils
 man-pages-posix
 netcat
 smartmontools
+strace
 sushi
 syncthing
 tailscale
