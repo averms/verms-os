@@ -4,6 +4,11 @@ set -eu
 # https://gitlab.com/fedora/bootc/base-images/-/merge_requests/71
 ln --no-target-directory -s ../run /var/run
 
+# Configuration
+# Copy without overwriting permissions for already existing directories unlike
+# Dockerfile COPY.
+cp --no-target-directory -vR context/etc /etc
+
 # Fix package reasons
 dnf -y mark dependency '*' >/dev/null
 dnf rq --leaves | xargs -d '\n' dnf -y mark user >/dev/null
@@ -22,15 +27,14 @@ dnf -y remove \
 sed -i '/^enabled=0/{s/0/1/}' /etc/yum.repos.d/google-chrome.repo
 sed -i '/^enabled=1/{s/1/0/}' /etc/yum.repos.d/fedora-cisco-openh264.repo
 
-# RPM Fusion and VS Code
-dnf config-manager addrepo --from-repofile context/etc/yum.repos.d/vscode.repo
+# RPM Fusion
 dnf -y install \
     "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$1.noarch.rpm" \
     "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$1.noarch.rpm"
 
 # Codecs
 dnf -y swap mesa-va-drivers mesa-va-drivers-freeworld
-dnf -y swap --allowerasing ffmpeg-free ffmpeg-libs
+dnf -y swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter-free or libavutil-free or libavcodec-free)' ffmpeg-libs
 
 # Mitigate https://bugzilla.redhat.com/show_bug.cgi?id=2332429
 dnf -y swap OpenCL-ICD-Loader ocl-icd
@@ -57,13 +61,12 @@ rm -r /etc/cron.daily
 rmdir /opt/google /opt
 mv /opt.bk /opt
 
-# Configuration
+# Systemd
 systemctl enable tailscaled.service
 systemctl enable rpm-ostreed-automatic.timer
-# Copy without overwriting permissions for already existing directories unlike
-# Dockerfile COPY.
-cp --no-target-directory -vR context/etc /etc
 
-dnf -y autoremove
-dnf clean all
+# If it tries to autoremove, something went wrong.
+dnf --assumeno autoremove
+# This does what dnf clean all does and more.
+rm -r /var/cache/*
 bootc container lint
