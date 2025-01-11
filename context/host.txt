@@ -6,7 +6,6 @@ xorg-x11-xinit
 # Packages I want on the host
 code
 distrobox
-gcc
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
 google-noto-fonts-all-vf
@@ -19,3 +18,6 @@ strace
 sushi
 syncthing
 tailscale
+
+# Needed because of Homebrew bug. See https://github.com/orgs/Homebrew/discussions/5627.
+gcc

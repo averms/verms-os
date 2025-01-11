@@ -16,6 +16,8 @@ dnf -y mark user bootc rpm-ostree qemu-user-static-aarch64
 
 # Removals
 dnf -y remove \
+    bash-color-prompt \
+    bash-completion \
     bind-utils \
     gnome-software \
     gnome-tour \
