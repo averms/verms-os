@@ -41,6 +41,8 @@ _image() {
     shift
 
     sudo podman run --pull=always --rm -it --privileged --security-opt label=disable \
+        -v ./cache/rpm:/rpmmd \
+        -v ./cache/osbuild:/store \
         -v ./output:/output \
         -v "${config}:/config.toml:ro" \
         -v /var/lib/containers/storage:/var/lib/containers/storage \
