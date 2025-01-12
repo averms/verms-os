@@ -10,4 +10,8 @@ bootc switch --mutate-in-place ghcr.io/averms/verms-os:latest
 """
 
 [customizations.installer.modules]
-enable = ["org.fedoraproject.Anaconda.Modules.Localization"]
+disable = [
+    "org.fedoraproject.Anaconda.Modules.Security",
+    "org.fedoraproject.Anaconda.Modules.Services",
+    "org.fedoraproject.Anaconda.Modules.Subscription",
+]
