@@ -12,7 +12,7 @@ cp --no-target-directory -vR context/etc /etc
 # Fix package reasons
 dnf -y mark dependency '*' >/dev/null
 dnf rq --leaves | xargs -d '\n' dnf -y mark user >/dev/null
-dnf -y mark user bootc rpm-ostree qemu-user-static-aarch64
+dnf -y mark user fwupd rpm-ostree qemu-user-static-aarch64
 
 # Removals
 dnf -y remove \
