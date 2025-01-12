@@ -65,7 +65,7 @@ mv /opt.bk /opt
 
 # Systemd
 systemctl enable tailscaled.service
-systemctl enable rpm-ostreed-automatic.timer
+systemctl enable bootc-fetch-apply-updates.timer
 
 # If it tries to autoremove, something went wrong.
 dnf --assumeno autoremove
