@@ -10,4 +10,5 @@ FROM quay.io/fedora/fedora-silverblue:${MAJOR_VERSION}
 
 ARG MAJOR_VERSION
 RUN --mount=type=bind,from=context,src=/,dst=/context \
+    --mount=type=cache,dst=/var/cache/libdnf5 \
     sh /context/verms.sh ${MAJOR_VERSION}

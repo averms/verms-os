@@ -69,6 +69,6 @@ systemctl enable rpm-ostreed-automatic.timer
 
 # If it tries to autoremove, something went wrong.
 dnf --assumeno autoremove
-# This does what dnf clean all does and more.
-rm -r /var/cache/*
+# Clean all except for libdnf5 which is mount type=cache.
+find /var/cache -mindepth 1 -maxdepth 1 -not -name libdnf5 -print0 | xargs -0 rm -r
 bootc container lint
