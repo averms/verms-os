@@ -1,7 +1,7 @@
 name: ci
 on:
   schedule:
-    - cron: "44 6 * * 5"
+    - cron: "44 7 * * 1"
   workflow_dispatch: null
 
 env:
