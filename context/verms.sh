@@ -9,9 +9,10 @@ ln --no-target-directory -s ../run /var/run
 # Dockerfile COPY.
 cp --no-target-directory -vR context/etc /etc
 
-# Don't prompt
+# Don't prompt and fail if it can't install the latest version of everything.
+# This prevents downgrading if rpmfusion is not up to date.
 autodnf() {
-    command dnf --assumeyes "$@"
+    command dnf --assumeyes --best "$@"
 }
 
 # Fix package reasons
