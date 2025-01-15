@@ -5,6 +5,6 @@ gdb
 # https://libvirt.org/kbase/rpm-deployment.html
 libvirt-daemon-config-network
 libvirt-daemon-driver-qemu
-libvirt-daemon-driver-storage-disk
+libvirt-daemon-driver-storage-core
 qemu-kvm
 virt-manager
