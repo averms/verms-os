@@ -28,7 +28,8 @@ autodnf remove \
     gnome-software \
     gnome-tour \
     nano \
-    ntfs-3g ntfsprogs
+    ntfs-3g ntfsprogs \
+    tree
 
 # Enable google-chrome and disable fedora-cisco-openh264.
 # We don't use config-manager setopt because rpm-ostree doesn't notice it.
