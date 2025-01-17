@@ -48,10 +48,8 @@ autodnf swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter
 autodnf swap OpenCL-ICD-Loader ocl-icd
 
 # Host packages
-grep -Ev '^#|^$' context/host.txt |
-    xargs -d '\n' autodnf install
-grep -Ev '^#|^$' context/host-no-weak-deps.txt |
-    xargs -d '\n' autodnf --setopt install_weak_deps=False install
+autodnf install $(grep -Ev '^#|^$' context/host.txt)
+autodnf --setopt install_weak_deps=False install $(grep -Ev '^#|^$' context/host-no-weak-deps.txt)
 
 # Install google-chrome-stable. Taken from
 # https://github.com/travier/fedora-sysexts/blob/047ab6b890/google-chrome/Containerfile
