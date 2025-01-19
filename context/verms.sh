@@ -71,6 +71,7 @@ mv /opt.bk /opt
 # Systemd
 systemctl enable tailscaled.service
 systemctl enable bootc-fetch-apply-updates.timer
+systemctl disable avahi-daemon.service
 
 # If it tries to autoremove, something went wrong.
 dnf --assumeno autoremove
