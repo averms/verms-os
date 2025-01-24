@@ -7,7 +7,7 @@ My custom build of Fedora Silverblue.
 Install Fedora Silverblue first. Then upgrade and reboot. Then run
 
 ```
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/averms/verms-os:latest
+bootc switch ghcr.io/averms/verms-os:latest
 ```
 
 If you would like to build a qcow2 image for running under qemu, use
