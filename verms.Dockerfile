@@ -6,7 +6,7 @@ ARG MAJOR_VERSION
 FROM scratch AS context
 COPY /context /
 
-FROM quay.io/fedora/fedora-silverblue:${MAJOR_VERSION}
+FROM quay.io/fedora-ostree-desktops/silverblue:${MAJOR_VERSION}
 
 ARG MAJOR_VERSION
 RUN --mount=type=bind,from=context,src=/,dst=/context \
