@@ -4,7 +4,7 @@ My custom build of Fedora Silverblue.
 
 ## Installation
 
-Install Fedora Silverblue first. Then upgrade and reboot. Then run
+Install Fedora Silverblue 41 first. Then upgrade and reboot. Then run
 
 ```
 bootc switch ghcr.io/averms/verms-os:latest
