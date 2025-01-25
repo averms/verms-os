@@ -52,6 +52,9 @@ autodnf swap OpenCL-ICD-Loader ocl-icd
 autodnf install $(grep -Ev '^#|^$' context/host.txt)
 autodnf --setopt install_weak_deps=False install $(grep -Ev '^#|^$' context/host-no-weak-deps.txt)
 
+# VPN
+autodnf install https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v2.4.3/globalprotect-openconnect-2.4.3-1.x86_64.rpm
+
 # Install google-chrome-stable. Taken from
 # https://github.com/travier/fedora-sysexts/blob/047ab6b890/google-chrome/Containerfile
 mv /opt /opt.bk
