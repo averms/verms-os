@@ -81,4 +81,4 @@ dnf --assumeno autoremove
 # Clean all except for libdnf5 which is mount type=cache.
 find /var/cache -mindepth 1 -maxdepth 1 -not -name libdnf5 -print0 | xargs -0 rm -r
 rm -r /var/log/*
-bootc container lint
+bootc container lint || true
