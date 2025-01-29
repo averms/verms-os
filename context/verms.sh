@@ -21,11 +21,11 @@ autodnf swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter
 # Mitigate https://bugzilla.redhat.com/show_bug.cgi?id=2332429
 autodnf swap OpenCL-ICD-Loader ocl-icd
 
-# # NVIDIA drivers
-# autodnf install "/tmp/kmods/nvidia/kmod-nvidia-$(rpm -q --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}' kernel)"*.rpm
-# cat <<EOF >/usr/lib/bootc/kargs.d/10-nvidia.toml
-# kargs = ["rd.driver.blacklist=nouveau", "modprobe.blacklist=nouveau", "nvidia-drm.modeset=1"]
-# EOF
+# NVIDIA drivers
+autodnf install "/tmp/kmods/nvidia/kmod-nvidia-$(rpm -q --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}' kernel)"*.rpm
+cat <<EOF >/usr/lib/bootc/kargs.d/10-nvidia.toml
+kargs = ["rd.driver.blacklist=nouveau", "modprobe.blacklist=nouveau", "nvidia-drm.modeset=1"]
+EOF
 
 # Host packages
 autodnf install $(grep -Ev '^#|^$' context/host.txt)
