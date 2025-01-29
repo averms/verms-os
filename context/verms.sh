@@ -22,7 +22,7 @@ autodnf swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter
 autodnf swap OpenCL-ICD-Loader ocl-icd
 
 # NVIDIA drivers
-autodnf install /tmp/kmods/nvidia/kmod-nvidia*.rpm
+autodnf install "/tmp/kmods/nvidia/kmod-nvidia-$(rpm -q --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}' kernel)"*.rpm
 cat <<EOF >/usr/lib/bootc/kargs.d/10-nvidia.toml
 kargs = ["rd.driver.blacklist=nouveau", "modprobe.blacklist=nouveau", "nvidia-drm.modeset=1"]
 EOF
@@ -51,6 +51,7 @@ mv /opt.bk /opt
 systemctl enable tailscaled.service
 systemctl enable bootc-fetch-apply-updates.timer
 systemctl disable avahi-daemon.service
+systemctl disable nvidia-powerd.service
 
 # If it tries to autoremove, something went wrong.
 dnf --assumeno autoremove
