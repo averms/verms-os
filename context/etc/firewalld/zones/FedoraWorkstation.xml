@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <zone>
-  <short>Fedora Workstation</short>
-  <description>Tailscale is allowed. Incoming packets that are related to outgoing network connections are accepted. Outgoing network connections are allowed.</description>
+  <short>Outside Tailscale</short>
+  <description>
+    Tailscale is allowed. Incoming packets that are related to outgoing
+    network connections are accepted. Outgoing network connections are
+    allowed.
+  </description>
 
-  <!-- Not useful right now, could be in the future -->
+  <!-- Not used right now -->
   <!-- <service name="mdns"/> -->
   <!-- <service name="ssdp"/> -->
   <!-- <service name="netbios-ns"/> -->
 
-  <service name="dhcpv6-client"/>
-  <service name="syncthing"/>
-  <service name="spotify-sync"/>
+  <service name="dhcpv6-client" />
+  <service name="syncthing" />
+  <service name="spotify-sync" />
   <!-- For tailscale -->
-  <port protocol="udp" port="41641"/>
+  <port protocol="udp" port="41641" />
 
-  <forward/>
+  <forward />
 </zone>
