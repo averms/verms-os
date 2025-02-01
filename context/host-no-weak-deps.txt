@@ -2,7 +2,7 @@
 gdb
 
 # QEMU virtualization with as few extra packages as possible. See
-# https://libvirt.org/kbase/rpm-deployment.html
+# https://libvirt.org/kbase/rpm-deployment.html.
 libvirt-daemon-config-network
 libvirt-daemon-driver-qemu
 libvirt-daemon-driver-storage-core

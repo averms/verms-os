@@ -12,7 +12,7 @@ bootc switch ghcr.io/averms/verms-os:latest
 
 If you would like to build a qcow2 image for running under qemu, use
 `./go.sh build-qcow2`. If you would like to build an ISO for interactive installation
-on bare-metal, use `./go.sh build-iso`. These rely on the still unstable
+on bare-metal, use `./go.sh build-iso`. These rely on the currently unstable
 bootc-image-builder, so your mileage may vary.
 
 ## References
