@@ -26,12 +26,6 @@ build-iso() {
         --local --type anaconda-iso --rootfs xfs localhost/verms-os:latest
 }
 
-help() {
-    echo "$0 <task> [args]"
-    echo
-    compgen -A function | grep -v '^_' | cat -n
-}
-
 _oci() {
     podman build --pull=always --build-arg MAJOR_VERSION=41 "$@"
 }
@@ -48,6 +42,12 @@ _image() {
         -v /var/lib/containers/storage:/var/lib/containers/storage \
         quay.io/centos-bootc/bootc-image-builder:latest \
         "$@"
+}
+
+help() {
+    echo "$0 <task> [args]"
+    echo
+    compgen -A function | grep -v '^_' | cat -n
 }
 
 TIMEFORMAT="Task completed in %3lR"
