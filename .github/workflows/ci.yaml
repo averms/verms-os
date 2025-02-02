@@ -5,7 +5,6 @@ on:
   workflow_dispatch: null
 
 env:
-  MY_IMAGE_NAME: "${{ github.event.repository.name }}"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
 
 concurrency:
@@ -27,7 +26,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build image
-        id: build_image
         shell: bash
         run: |
           ./go.sh build-verms
