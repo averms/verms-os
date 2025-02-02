@@ -3,7 +3,7 @@ set -eu
 shopt -s inherit_errexit
 
 build-verms() {
-    _oci --tag verms-os -f verms.Dockerfile
+    _oci --tag verms-os
 }
 
 build-toolbox() {
