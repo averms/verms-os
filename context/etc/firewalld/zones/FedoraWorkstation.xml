@@ -14,7 +14,6 @@
 
   <service name="dhcpv6-client" />
   <service name="syncthing" />
-  <service name="spotify-sync" />
   <!-- For tailscale -->
   <port protocol="udp" port="41641" />
 
