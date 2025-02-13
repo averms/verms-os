@@ -15,15 +15,15 @@ push-verms() {
 }
 
 build-qcow2() {
-    podman image scp localhost/verms-os:latest root@localhost::
     _image ./qemu_config.toml \
-        --local --type qcow2 --rootfs xfs localhost/verms-os:latest
+        build \
+        --use-librepo --rootfs xfs --type qcow2 ghcr.io/averms/verms-os:latest
 }
 
 build-iso() {
-    podman image scp localhost/verms-os:latest root@localhost::
     _image ./iso_config.toml \
-        --local --type anaconda-iso --rootfs xfs localhost/verms-os:latest
+        build \
+        --use-librepo --rootfs xfs --type anaconda-iso ghcr.io/averms/verms-os:latest
 }
 
 _oci() {
