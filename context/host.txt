@@ -20,9 +20,6 @@ tailscale
 # CUDA, depends on already having installed kmod-nvidia.
 xorg-x11-drv-nvidia-cuda
 
-# UTDallas VPN.
-https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v2.4.3/globalprotect-openconnect-2.4.3-1.x86_64.rpm
-
 # Needed because of Homebrew bug. See https://github.com/orgs/Homebrew/discussions/5627.
 gcc
 
