@@ -21,4 +21,4 @@ FROM base AS verms-os
 RUN --mount=type=bind,from=context,src=/,dst=/context \
     --mount=type=bind,from=kmod-builder,src=/var/cache/akmods,dst=/tmp/kmods \
     --mount=type=cache,dst=/var/cache/libdnf5 \
-    sh /context/verms.sh
+    sh /context/full-verms.sh
