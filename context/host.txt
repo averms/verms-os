@@ -16,6 +16,7 @@ smartmontools
 sushi
 syncthing
 tailscale
+xxd
 
 # CUDA, depends on already having installed kmod-nvidia.
 xorg-x11-drv-nvidia-cuda
