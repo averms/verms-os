@@ -1,8 +1,10 @@
 ARG MAJOR_VERSION
 
-# Bind mounts from host don't cache correctly:
-# https://github.com/containers/buildah/issues/5400
+# Podman 4.9 doesn't cache bind mounts from host correctly[1]
 # so we use a scratch image.
+#
+# [1]: https://github.com/containers/buildah/issues/5400
+
 FROM scratch AS context
 COPY /context /
 
