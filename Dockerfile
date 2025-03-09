@@ -4,7 +4,6 @@ ARG MAJOR_VERSION
 # so we use a scratch image.
 #
 # [1]: https://github.com/containers/buildah/issues/5400
-
 FROM scratch AS context
 COPY /context /
 
