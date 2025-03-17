@@ -27,7 +27,7 @@ build-iso() {
 }
 
 _oci() {
-    podman build --pull=always --build-arg MAJOR_VERSION=41 "$@"
+    podman build --pull=always "$@"
 }
 
 _image() {
