@@ -4,7 +4,6 @@ FROM scratch AS context
 COPY /context /
 
 FROM quay.io/fedora-ostree-desktops/silverblue:41 AS base
-ARG MAJOR_VERSION
 RUN --mount=type=bind,from=context,src=/,dst=/context \
     --mount=type=cache,dst=/var/cache/libdnf5 \
     sh /context/base-verms.sh
