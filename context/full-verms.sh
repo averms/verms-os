@@ -5,10 +5,10 @@ set -eu
 
 # Removals
 autodnf remove \
+    appstream-data \
     bash-color-prompt \
     bash-completion \
     bind-utils \
-    gnome-software \
     gnome-tour \
     nano \
     ntfs-3g ntfsprogs \
@@ -57,5 +57,4 @@ systemctl disable nvidia-powerd.service
 dnf --assumeno autoremove
 # Clean var except for var/lib/cache/libdnf5 which is mount type=cache.
 find /var -mindepth 2 -maxdepth 2 -not -name libdnf5 -print0 | xargs -0 rm -r
-# Remove || true when composefs is enabled.
-bootc container lint || true
+bootc container lint
