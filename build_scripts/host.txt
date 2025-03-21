@@ -22,7 +22,8 @@ xxd
 xorg-x11-drv-nvidia-cuda
 
 # Needed because of Homebrew bug. See https://github.com/orgs/Homebrew/discussions/5627.
-gcc
+# C++ is needed because clang installed from Homebrew uses its header files.
+gcc-c++
 
 # Needed because Homebrew version is deficient in some way.
 netcat
