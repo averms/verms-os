@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-. context/lib.sh
+. build_scripts/lib.sh
 
 # Removals
 autodnf remove \
@@ -22,14 +22,14 @@ autodnf swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter
 autodnf swap OpenCL-ICD-Loader ocl-icd
 
 # NVIDIA drivers
-autodnf install "/tmp/kmods/nvidia/kmod-nvidia-$(rpm -q --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}' kernel)"*.rpm
+autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
 cat <<EOF >/usr/lib/bootc/kargs.d/10-nvidia.toml
 kargs = ["rd.driver.blacklist=nouveau", "modprobe.blacklist=nouveau", "nvidia-drm.modeset=1"]
 EOF
 
 # Host packages
-autodnf install $(grep -Ev '^#|^$' context/host.txt)
-autodnf --setopt install_weak_deps=False install $(grep -Ev '^#|^$' context/host-no-weak-deps.txt)
+autodnf install $(from_file build_scripts/host.txt)
+autodnf --setopt install_weak_deps=False install $(from_file build_scripts/host-no-weak-deps.txt)
 
 # Install google-chrome-stable. Taken from
 # https://github.com/travier/fedora-sysexts/blob/047ab6b890/google-chrome/Containerfile

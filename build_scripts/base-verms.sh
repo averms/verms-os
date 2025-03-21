@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-. context/lib.sh
+. build_scripts/lib.sh
 
 # https://gitlab.com/fedora/bootc/base-images/-/merge_requests/71
 ln --no-target-directory -s ../run /var/run
@@ -9,7 +9,7 @@ ln --no-target-directory -s ../run /var/run
 # Configuration
 # Copy without overwriting permissions for already existing directories unlike
 # Dockerfile COPY.
-cp --no-target-directory -vR context/system_files /
+cp --no-target-directory -vR system_files /
 
 # Fix package reasons
 autodnf mark dependency '*' >/dev/null
