@@ -1,7 +1,5 @@
 # verms OS
 
-My custom build of Fedora Silverblue.
-
 ## Installation
 
 Install Fedora Silverblue 41 first. Then upgrade and reboot. Then run
@@ -19,7 +17,7 @@ bootc-image-builder, so your mileage may vary.
 
 I learned a lot from reading the code of the following projects:
 
-- https://github.com/ublue-os/main
 - https://github.com/travier/fedora-sysexts
-- https://github.com/centos-workstation/achillobator
+- https://github.com/ublue-os/bluefin-lts
+- https://github.com/ublue-os/main
 - https://gitlab.com/fedora/bootc/examples
