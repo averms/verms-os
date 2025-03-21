@@ -9,7 +9,7 @@ ln --no-target-directory -s ../run /var/run
 # Configuration
 # Copy without overwriting permissions for already existing directories unlike
 # Dockerfile COPY.
-cp --no-target-directory -vR context/etc /etc
+cp --no-target-directory -vR context/system_files /
 
 # Fix package reasons
 autodnf mark dependency '*' >/dev/null
