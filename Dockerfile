@@ -2,8 +2,8 @@
 # repositories.
 
 FROM quay.io/fedora-ostree-desktops/silverblue:41 AS base
-RUN --mount=type=bind,src=/system_files,dst=/system_files \
-    --mount=type=bind,src=/build_scripts,dst=/build_scripts \
+RUN --mount=type=bind,src=/build_scripts,dst=/build_scripts \
+    --mount=type=bind,src=/system_files,dst=/system_files \
     sh /build_scripts/base-verms.sh
 
 # The second stage builds nvidia-kmod.
