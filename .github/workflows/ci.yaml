@@ -4,6 +4,8 @@ on:
     - cron: "44 3 * * 1"
   workflow_dispatch: null
 
+permissions: {}
+
 env:
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
 
@@ -22,13 +24,11 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
-      - name: Build image
-        shell: bash
-        run: |
-          ./go.sh build-verms
+      - run: ./go.sh build-verms
 
       - name: Push image to GHCR
         uses: redhat-actions/push-to-registry@v2
