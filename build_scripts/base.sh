@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-. build_scripts/lib.sh
+. build_scripts/_lib.sh
 
 # Configuration
 # Copy without overwriting permissions for already existing directories unlike
