@@ -3,9 +3,6 @@ set -eu
 
 . build_scripts/lib.sh
 
-# https://gitlab.com/fedora/bootc/base-images/-/merge_requests/71
-ln --no-target-directory -s ../run /var/run
-
 # Configuration
 # Copy without overwriting permissions for already existing directories unlike
 # Dockerfile COPY.
