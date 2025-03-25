@@ -11,7 +11,7 @@ ln --no-target-directory -s ../run /var/run
 # Dockerfile COPY.
 cp --no-target-directory -vR system_files /
 
-# Fix package reasons
+# Mark only leaves as user-installed.
 autodnf mark dependency '*' >/dev/null
 autodnf mark user $(dnf repoquery --leaves) >/dev/null
 autodnf mark user fwupd rpm-ostree qemu-user-static-aarch64
