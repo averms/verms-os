@@ -10,6 +10,7 @@ autodnf remove \
     bash-completion \
     bind-utils \
     gnome-tour \
+    gnome-user-share \
     nano \
     ntfs-3g ntfsprogs \
     tree
