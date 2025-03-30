@@ -3,6 +3,5 @@ set -eu
 
 . build_scripts/_lib.sh
 
-autodnf install "kernel-devel-matched-${kernel_ver}"
-autodnf install akmod-nvidia
+autodnf install akmod-nvidia "kernel-devel-matched-${kernel_ver}"
 akmods --force --kernels "${kernel_ver}"
