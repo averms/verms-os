@@ -32,6 +32,7 @@ _image() {
     local config="$1"
     shift
 
+    sudo podman pull "${IMAGE_URL}"
     sudo podman run --pull=newer --rm -it --privileged --security-opt label=disable \
         -v rpmmd:/rpmmd \
         -v osbuild:/store \
