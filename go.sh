@@ -2,39 +2,37 @@
 set -eu
 shopt -s inherit_errexit
 
-build-verms() {
+IMAGE_URL=ghcr.io/averms/verms-os:latest
+
+build() {
     _oci --tag verms-os .
 }
 
-build-toolbox() {
-    _oci --tag toolbox -f toolbox.Dockerfile
-}
-
 push-verms() {
-    podman push --creds averms verms-os:latest ghcr.io/averms/verms-os:latest
+    podman push --creds averms verms-os:latest "${IMAGE_URL}"
 }
 
 build-qcow2() {
     _image ./qemu_config.toml \
         build \
-        --use-librepo --rootfs xfs --type qcow2 ghcr.io/averms/verms-os:latest
+        --use-librepo --rootfs xfs --type qcow2 "${IMAGE_URL}"
 }
 
 build-iso() {
     _image ./iso_config.toml \
         build \
-        --use-librepo --rootfs xfs --type anaconda-iso ghcr.io/averms/verms-os:latest
+        --use-librepo --rootfs xfs --type anaconda-iso "${IMAGE_URL}"
 }
 
 _oci() {
-    podman build --pull=always "$@"
+    podman build --pull=newer "$@"
 }
 
 _image() {
     local config="$1"
     shift
 
-    sudo podman run --pull=always --rm -it --privileged --security-opt label=disable \
+    sudo podman run --pull=newer --rm -it --privileged --security-opt label=disable \
         -v rpmmd:/rpmmd \
         -v osbuild:/store \
         -v ./output:/output \
