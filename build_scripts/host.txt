@@ -13,7 +13,6 @@ kitty
 libva-utils
 man-pages-posix
 smartmontools
-sushi
 syncthing
 tailscale
 xxd
