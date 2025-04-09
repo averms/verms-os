@@ -28,7 +28,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - run: ./go.sh build-verms
+      - run: ./go.sh build
 
       - name: Push image to GHCR
         uses: redhat-actions/push-to-registry@v2
