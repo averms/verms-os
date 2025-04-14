@@ -16,7 +16,8 @@ push-verms() {
     else
         password=
     fi
-    podman push --creds "averms${password}" "${image_id}" "${image_repo}/${image_id}"
+    podman push --creds "averms${password}" --compression-format=zstd \
+        "${image_id}" "${image_repo}/${image_id}"
 }
 
 build-qcow2() {
