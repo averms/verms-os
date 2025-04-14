@@ -30,17 +30,7 @@ jobs:
           persist-credentials: false
 
       - run: ./go.sh build
-
-      - name: Push image to GHCR
-        uses: redhat-actions/push-to-registry@v2
-        with:
-          image: verms-os
-          registry: ${{ env.IMAGE_REGISTRY }}
-          tags: latest
-          username: ${{ github.actor }}
-          password: ${{ github.token }}
-          extra-args: |
-            --compression-format=zstd
+      - run: ./go.sh push-verms ${{ github.token }}
 
   build-next:
     name: Build and push next image to GHCR
@@ -58,14 +48,4 @@ jobs:
           persist-credentials: false
 
       - run: ./go.sh build
-
-      - name: Push image to GHCR
-        uses: redhat-actions/push-to-registry@v2
-        with:
-          image: verms-os
-          registry: ${{ env.IMAGE_REGISTRY }}
-          tags: next
-          username: ${{ github.actor }}
-          password: ${{ github.token }}
-          extra-args: |
-            --compression-format=zstd
+      - run: ./go.sh push-verms ${{ github.token }}
