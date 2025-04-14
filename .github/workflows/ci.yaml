@@ -6,15 +6,12 @@ on:
 
 permissions: {}
 
-env:
-  IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}-${{ inputs.brand_name}}-${{ inputs.stream_name }}
   cancel-in-progress: true
 
 jobs:
-  build-latest:
+  build:
     name: Build and push latest image to GHCR
     runs-on: ubuntu-24.04
 
@@ -26,25 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: trunk
-          persist-credentials: false
-
-      - run: ./go.sh build
-      - run: ./go.sh push-verms ${{ github.token }}
-
-  build-next:
-    name: Build and push next image to GHCR
-    runs-on: ubuntu-24.04
-
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: arv/f42
           persist-credentials: false
 
       - run: ./go.sh build
