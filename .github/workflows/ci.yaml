@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build and push latest image to GHCR
+    name: Build and push image to GHCR
     runs-on: ubuntu-24.04
 
     permissions:
