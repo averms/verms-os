@@ -14,8 +14,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-custom:
-    name: Build and push image to GHCR
+  build-latest:
+    name: Build and push latest image to GHCR
     runs-on: ubuntu-24.04
 
     permissions:
@@ -36,6 +36,34 @@ jobs:
           image: verms-os
           registry: ${{ env.IMAGE_REGISTRY }}
           tags: latest
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+          extra-args: |
+            --compression-format=zstd
+
+  build-next:
+    name: Build and push next image to GHCR
+    runs-on: ubuntu-24.04
+
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arv/f42
+          persist-credentials: false
+
+      - run: ./go.sh build
+
+      - name: Push image to GHCR
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: verms-os
+          registry: ${{ env.IMAGE_REGISTRY }}
+          tags: next
           username: ${{ github.actor }}
           password: ${{ github.token }}
           extra-args: |
