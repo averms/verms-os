@@ -2,26 +2,33 @@
 set -eu
 shopt -s inherit_errexit
 
-IMAGE_URL=ghcr.io/averms/verms-os:latest
+image_repo=ghcr.io/averms
+image_id=verms-os:latest
 
 build() {
-    _oci --tag verms-os .
+    _oci --tag "${image_id}" .
 }
 
 push-verms() {
-    podman push --creds averms verms-os:latest "${IMAGE_URL}"
+    local password
+    if [[ $# -eq 1 ]]; then
+        password=":${1}"
+    else
+        password=
+    fi
+    podman push --creds "averms${password}" "${image_id}" "${image_repo}/${image_id}"
 }
 
 build-qcow2() {
     _image ./qemu_config.toml \
         build \
-        --use-librepo --rootfs xfs --type qcow2 "${IMAGE_URL}"
+        --use-librepo --rootfs xfs --type qcow2 "${image_repo}/${image_id}"
 }
 
 build-iso() {
     _image ./iso_config.toml \
         build \
-        --use-librepo --rootfs xfs --type anaconda-iso "${IMAGE_URL}"
+        --use-librepo --rootfs xfs --type anaconda-iso "${image_repo}/${image_id}"
 }
 
 _oci() {
@@ -32,7 +39,7 @@ _image() {
     local config="$1"
     shift
 
-    sudo podman pull "${IMAGE_URL}"
+    sudo podman pull "${image_repo}/${image_id}"
     sudo podman run --pull=newer --rm -it --privileged --security-opt label=disable \
         -v rpmmd:/rpmmd \
         -v osbuild:/store \
