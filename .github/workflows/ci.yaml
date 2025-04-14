@@ -26,6 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: trunk
           persist-credentials: false
 
       - run: ./go.sh build
