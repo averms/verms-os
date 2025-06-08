@@ -8,9 +8,9 @@ Install Fedora Silverblue 41 first. Then upgrade and reboot. Then run
 bootc switch ghcr.io/averms/verms-os:latest
 ```
 
-If you would like to build a qcow2 image for running under qemu, use
+If you would like to build a qcow2 image for running under qemu, type
 `./go.sh build-qcow2`. If you would like to build an ISO for interactive installation
-on bare-metal, use `./go.sh build-iso`. These rely on the currently unstable
+on bare-metal, type `./go.sh build-iso`. These rely on the currently unstable
 bootc-image-builder, so your mileage may vary.
 
 ## References
