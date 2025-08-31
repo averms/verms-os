@@ -25,7 +25,7 @@ autodnf swap OpenCL-ICD-Loader ocl-icd
 # NVIDIA drivers
 autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
 cat <<EOF >/usr/lib/bootc/kargs.d/10-nvidia.toml
-kargs = ["rd.driver.blacklist=nouveau", "modprobe.blacklist=nouveau", "nvidia-drm.modeset=1"]
+kargs = ["rd.driver.blacklist=nouveau,nova_core", "modprobe.blacklist=nouveau,nova_core", "nvidia-drm.modeset=1"]
 EOF
 
 # Host packages
