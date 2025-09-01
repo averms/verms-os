@@ -56,6 +56,6 @@ systemctl disable nvidia-powerd.service
 systemctl disable plocate-updatedb.timer
 
 # If it tries to autoremove, something went wrong.
-dnf --assumeno autoremove
+autodnf autoremove
 rm -r /var/*
 bootc container lint
