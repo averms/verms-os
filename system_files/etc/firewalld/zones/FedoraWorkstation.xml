@@ -16,6 +16,8 @@
   <service name="syncthing" />
   <!-- For tailscale -->
   <port protocol="udp" port="41641" />
+  <!-- For monero -->
+  <port protocol="tcp" port="18080" />
 
   <forward />
 </zone>
