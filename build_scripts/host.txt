@@ -21,6 +21,9 @@ steam
 # CUDA, depends on already having installed kmod-nvidia.
 xorg-x11-drv-nvidia-cuda
 
+# Keep kernel-modules-extra.
+kernel-modules-extra-matched
+
 # gcc is needed because of Homebrew bug. See
 # https://github.com/orgs/Homebrew/discussions/5627. libstdc++-devel is also needed
 # because clang from Homebrew uses it. So just install the full gcc-c++ package.

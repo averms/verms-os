@@ -32,6 +32,9 @@ EOF
 autodnf install $(from_file build_scripts/host.txt)
 autodnf --setopt install_weak_deps=False install $(from_file build_scripts/host-no-weak-deps.txt)
 
+# idk why steam installs this when it's not needed. TODO: figure out why
+autodnf remove libnsl.x86_64
+
 # Install google-chrome-stable. Taken from
 # https://github.com/travier/fedora-sysexts/blob/047ab6b890/google-chrome/Containerfile
 mv /opt /opt.bk
@@ -56,6 +59,6 @@ systemctl disable nvidia-powerd.service
 systemctl disable plocate-updatedb.timer
 
 # If it tries to autoremove, something went wrong.
-autodnf autoremove
+dnf --assumeno autoremove
 rm -r /var/*
 bootc container lint
