@@ -21,6 +21,7 @@ jobs:
       id-token: write
 
     steps:
+      - uses: ublue-os/remove-unwanted-software@v9
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
