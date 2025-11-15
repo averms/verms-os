@@ -21,6 +21,9 @@ steam
 # CUDA, depends on already having installed kmod-nvidia.
 xorg-x11-drv-nvidia-cuda
 
+# Firefox hardware decoding
+libva-nvidia-driver
+
 # Keep kernel-modules-extra.
 kernel-modules-extra-matched
 
