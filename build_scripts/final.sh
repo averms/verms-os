@@ -60,5 +60,6 @@ systemctl disable plocate-updatedb.timer
 
 # If it tries to autoremove, something went wrong.
 dnf --assumeno autoremove
+dnf clean all
 rm -r /var/*
 bootc container lint
