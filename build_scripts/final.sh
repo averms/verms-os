@@ -19,9 +19,6 @@ autodnf remove \
 autodnf swap mesa-va-drivers mesa-va-drivers-freeworld
 autodnf swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter-free or libavutil-free or libavcodec-free)' ffmpeg-libs
 
-# Mitigate https://bugzilla.redhat.com/show_bug.cgi?id=2332429
-autodnf swap OpenCL-ICD-Loader ocl-icd
-
 # NVIDIA drivers
 autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
 cat <<EOF >/usr/lib/bootc/kargs.d/10-nvidia.toml
