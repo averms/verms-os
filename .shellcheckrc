@@ -1,0 +1,5 @@
+# we use this all the time
+disable=SC2046
+
+# buggy, see https://github.com/koalaman/shellcheck/issues/2833
+disable=SC2115
