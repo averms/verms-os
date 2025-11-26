@@ -32,21 +32,11 @@ autodnf --setopt install_weak_deps=False install $(from_file build_scripts/host-
 # idk why steam installs this when it's not needed. TODO: figure out why
 autodnf remove libnsl.x86_64
 
-# Install google-chrome-stable. Taken from
-# https://github.com/travier/fedora-sysexts/blob/047ab6b890/google-chrome/Containerfile
-mv /opt /opt.bk
+# Install google-chrome-stable.
+rm /opt
 mkdir /opt
 autodnf install google-chrome-stable
-mv /opt/google/chrome /usr/lib/google-chrome
-ln -sf /usr/lib/google-chrome/google-chrome /usr/bin/google-chrome-stable
-for i in 16 24 32 48 64 128 256; do
-    mkdir -p "/usr/share/icons/hicolor/${i}x${i}/apps"
-    ln -sf "/usr/lib/google-chrome/product_logo_${i}.png" \
-        "/usr/share/icons/hicolor/${i}x${i}/apps/google-chrome.png"
-done
 rm -r /etc/cron.daily
-rmdir /opt/google /opt
-mv /opt.bk /opt
 
 # Systemd
 systemctl enable tailscaled.service
