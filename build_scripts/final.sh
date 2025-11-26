@@ -38,6 +38,8 @@ mkdir /opt
 autodnf install google-chrome-stable
 rm -r /etc/cron.daily
 
+mkdir /nix
+
 # Systemd
 systemctl enable tailscaled.service
 systemctl enable bootc-fetch-apply-updates.timer
