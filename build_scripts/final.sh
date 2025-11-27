@@ -44,6 +44,7 @@ mkdir /nix
 systemctl enable tailscaled.service
 systemctl enable bootc-fetch-apply-updates.timer
 systemctl disable avahi-daemon.service
+systemctl disable flatpak-add-fedora-repos.service
 systemctl disable nvidia-powerd.service
 systemctl disable plocate-updatedb.timer
 

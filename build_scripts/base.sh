@@ -17,6 +17,11 @@ autodnf mark user fwupd rpm-ostree qemu-user-static-aarch64
 sed -i '/^enabled=0/{s/0/1/}' /etc/yum.repos.d/google-chrome.repo
 sed -i '/^enabled=1/{s/1/0/}' /etc/yum.repos.d/fedora-cisco-openh264.repo
 
+# Flathub
+mkdir -p /etc/flatpak/remotes.d
+curl -fRL --retry 1 -o /etc/flatpak/remotes.d/flathub.flatpakrepo \
+    https://dl.flathub.org/repo/flathub.flatpakrepo
+
 # RPM Fusion
 ver="$(rpm -E %fedora)"
 autodnf install \
