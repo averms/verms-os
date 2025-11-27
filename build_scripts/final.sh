@@ -29,10 +29,10 @@ EOF
 autodnf install $(from_file build_scripts/host.txt)
 autodnf --setopt install_weak_deps=False install $(from_file build_scripts/host-no-weak-deps.txt)
 
-# idk why steam installs this when it's not needed. TODO: figure out why
+# IDK why Steam installs this when it's not needed. TODO: figure out why
 autodnf remove libnsl.x86_64
 
-# Install google-chrome-stable.
+# Install Chrome
 rm /opt
 mkdir /opt
 autodnf install google-chrome-stable

@@ -3,7 +3,6 @@ set -eu
 
 . build_scripts/_lib.sh
 
-# Configuration
 # Copy without overwriting permissions for already existing directories unlike
 # Dockerfile COPY.
 cp --no-target-directory -vR system_files /
