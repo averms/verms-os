@@ -22,7 +22,7 @@ autodnf swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter
 # NVIDIA drivers
 autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
 cat <<EOF >/usr/lib/bootc/kargs.d/10-nvidia.toml
-kargs = ["rd.driver.blacklist=nouveau,nova_core", "modprobe.blacklist=nouveau,nova_core", "nvidia-drm.modeset=1"]
+kargs = ["rd.driver.blacklist=nouveau,nova_core", "modprobe.blacklist=nouveau,nova_core"]
 EOF
 
 # Host packages
