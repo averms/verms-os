@@ -17,6 +17,7 @@ autodnf remove \
 
 # Codecs
 autodnf swap mesa-va-drivers mesa-va-drivers-freeworld
+autodnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
 autodnf swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter-free or libavutil-free or libavcodec-free)' ffmpeg-libs
 
 # NVIDIA drivers
