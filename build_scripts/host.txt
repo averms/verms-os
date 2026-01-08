@@ -18,6 +18,10 @@ tailscale
 xxd
 steam
 
+# Deps of steam 
+https://github.com/averms/verms-os/releases/download/fix-rpmfusion-packages/mesa-va-drivers-freeworld-25.1.9-1.fc42.i686.rpm
+https://github.com/averms/verms-os/releases/download/fix-rpmfusion-packages/mesa-vulkan-drivers-freeworld-25.1.9-1.fc42.i686.rpm
+
 # CUDA, depends on already having installed kmod-nvidia.
 xorg-x11-drv-nvidia-cuda
 
