@@ -1,7 +1,6 @@
 # Xorg because only wayland is installed by default.
 gnome-session-xsession
 xorg-x11-drivers
-xorg-x11-xinit
 
 # Packages I want on the host.
 code
