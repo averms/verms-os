@@ -18,7 +18,13 @@ autodnf remove \
 # Codecs
 autodnf swap mesa-va-drivers "https://github.com/averms/verms-os/releases/download/fix-rpmfusion-packages/mesa-va-drivers-freeworld-25.1.9-1.fc42.x86_64.rpm"
 autodnf swap mesa-vulkan-drivers "https://github.com/averms/verms-os/releases/download/fix-rpmfusion-packages/mesa-vulkan-drivers-freeworld-25.1.9-1.fc42.x86_64.rpm"
-autodnf swap '(ffmpeg-free or libswscale-free or libavformat-free or libavfilter-free or libavutil-free or libavcodec-free)' ffmpeg-libs
+autodnf "do" --action=remove \
+    ffmpeg-free \
+    libavcodec-free \
+    libavfilter-free \
+    libavformat-free \
+    libavutil-free \
+    --action=install ffmpeg-libs
 
 # NVIDIA drivers
 autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
