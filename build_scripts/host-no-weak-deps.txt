@@ -8,3 +8,6 @@ libvirt-daemon-driver-qemu
 libvirt-daemon-driver-storage-core
 qemu-kvm
 virt-manager
+
+# Don't want to bring in ripgrep cause I use Homebrew for it.
+kitty

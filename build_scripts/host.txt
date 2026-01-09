@@ -8,7 +8,6 @@ distrobox
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
 google-noto-fonts-all-vf
-kitty
 libva-utils
 man-pages-posix
 smartmontools
