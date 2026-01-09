@@ -26,5 +26,8 @@ jobs:
         with:
           persist-credentials: false
 
+      - run: echo 'RUN rmdir /build_scripts' >> Dockerfile
+        name: Patch Dockerfile to work around old Podman bug
+
       - run: ./go.sh build
       - run: ./go.sh push-verms ${{ github.token }}
