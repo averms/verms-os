@@ -16,8 +16,8 @@ autodnf remove \
     tree
 
 # Codecs
-autodnf swap mesa-va-drivers "https://github.com/averms/verms-os/releases/download/fix-rpmfusion-packages/mesa-va-drivers-freeworld-25.1.9-1.fc42.x86_64.rpm"
-autodnf swap mesa-vulkan-drivers "https://github.com/averms/verms-os/releases/download/fix-rpmfusion-packages/mesa-vulkan-drivers-freeworld-25.1.9-1.fc42.x86_64.rpm"
+autodnf swap mesa-va-drivers mesa-va-drivers-freeworld
+autodnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
 autodnf "do" --action=remove \
     ffmpeg-free \
     libavcodec-free \
