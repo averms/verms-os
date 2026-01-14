@@ -13,7 +13,6 @@ man-pages-posix
 smartmontools
 syncthing
 tailscale
-xxd
 steam
 
 # CUDA, depends on already having installed kmod-nvidia.
