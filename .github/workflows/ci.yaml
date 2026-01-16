@@ -30,4 +30,6 @@ jobs:
         name: Patch Dockerfile to work around old Podman bug
 
       - run: ./go.sh build
-      - run: ./go.sh push-verms ${{ github.token }}
+      - run: ./go.sh push-verms "$GITHUB_TOKEN"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
