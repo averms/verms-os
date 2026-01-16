@@ -24,11 +24,11 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
+      - uses: docker/setup-buildx-action@v4
 
-      - run: podman info
-        name: Print Podman version and other info
-
-      - run: ./go.sh build
-      - run: ./go.sh push-verms "$GITHUB_TOKEN"
+      - run: |
+          docker login --username "$GITHUB_ACTOR" --password "$GITHUB_TOKEN"
+          docker buildx build --provenance false --output type=registry,compression=zstd,push=true --tag ghcr.io/averms/verms-os:latest .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
