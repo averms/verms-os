@@ -39,9 +39,11 @@ autodnf --setopt install_weak_deps=False install $(from_file build_scripts/host-
 # IDK why Steam installs this when it's not needed. TODO: figure out why
 autodnf remove libnsl.x86_64
 
-# Install Chrome
+# Make /opt part of the image, not machine-local state
 rm /opt
 mkdir /opt
+
+# Install Chrome, which is only possible with the above change
 autodnf install google-chrome-stable
 rm -r /etc/cron.daily
 

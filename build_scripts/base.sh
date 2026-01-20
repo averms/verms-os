@@ -17,6 +17,9 @@ autodnf mark user fwupd rpm-ostree qemu-user-static-aarch64
 sed -i '/^enabled=0/{s/0/1/}' /etc/yum.repos.d/google-chrome.repo
 sed -i '/^enabled=1/{s/1/0/}' /etc/yum.repos.d/fedora-cisco-openh264.repo
 
+# Fix sbin merge bug: https://github.com/coreos/rpm-ostree/pull/5507
+sed -i 's@^d /usr/local/sbin 0755 root root -$@L /usr/local/sbin - - - - bin@' /usr/lib/tmpfiles.d/rpm-ostree-0-integration.conf
+
 # Flathub
 mkdir -p /etc/flatpak/remotes.d
 curl -fRL --retry 1 -o /etc/flatpak/remotes.d/flathub.flatpakrepo \
