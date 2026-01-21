@@ -24,6 +24,12 @@ syncthing
 # Sandbox not as secure when running inside Flatpak
 google-chrome-stable
 
+# CUDA, depends on already having installed kmod-nvidia.
+xorg-x11-drv-nvidia-cuda
+
+# Firefox hardware decoding
+libva-nvidia-driver
+
 # Needed for Cemu
 mesa-libGLU
 
