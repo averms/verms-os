@@ -11,9 +11,9 @@ google-noto-fonts-all-vf
 libva-utils
 man-pages-posix
 smartmontools
+steam
 syncthing
 tailscale
-steam
 
 # Needed for Cemu
 mesa-libGLU

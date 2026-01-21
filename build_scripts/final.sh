@@ -38,11 +38,11 @@ autodnf --setopt install_weak_deps=False install $(from_file build_scripts/packa
 mkdir /nix
 
 # Systemd
-systemctl enable tailscaled.service
-systemctl enable bootc-fetch-apply-updates.timer
 systemctl disable avahi-daemon.service
 systemctl disable flatpak-add-fedora-repos.service
 systemctl disable plocate-updatedb.timer
+systemctl enable bootc-fetch-apply-updates.timer
+systemctl enable tailscaled.service
 
 # If it tries to autoremove, something went wrong.
 # The exclusion for libnsl.x86_64 comes from steam installing libnsl.i686. DNF5 seems to
