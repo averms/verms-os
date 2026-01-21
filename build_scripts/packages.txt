@@ -6,6 +6,7 @@ xorg-x11-drivers
 distrobox
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
+google-chrome-stable
 google-noto-fonts-all-vf
 libva-utils
 man-pages-posix

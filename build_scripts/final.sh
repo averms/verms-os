@@ -26,17 +26,14 @@ autodnf "do" --action=remove \
     libavutil-free \
     --action=install ffmpeg-libs
 
-# Host packages
-autodnf install $(from_file build_scripts/packages.txt)
-autodnf --setopt install_weak_deps=False install $(from_file build_scripts/packages_no_weak_deps.txt)
-
-# Make /opt part of the image, not machine-local state
+# Make /opt part of the image, not machine-local state. Necessary to install Google
+# Chrome
 rm /opt
 mkdir /opt
 
-# Install Chrome, which is only possible with the above change
-autodnf install google-chrome-stable
-rm -r /etc/cron.daily
+# Host packages
+autodnf install $(from_file build_scripts/packages.txt)
+autodnf --setopt install_weak_deps=False install $(from_file build_scripts/packages_no_weak_deps.txt)
 
 mkdir /nix
 
