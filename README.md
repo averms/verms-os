@@ -2,7 +2,7 @@
 
 My very own Linux "distro". Based on Fedora Silverblue but featuring:
 
-- hardware acceleration for AMD and NVIDIA from RPMFusion
+- hardware acceleration for AMD and NVIDIA (on the `nvidia` branch) from RPMFusion
 - Flathub instead of Fedora Flatpaks
 - patent-encumbered codecs
 - my system configuration and favorite packages (virt-manager, kitty, etc.)
