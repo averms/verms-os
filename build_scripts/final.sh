@@ -33,9 +33,6 @@ autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
 autodnf install $(from_file build_scripts/host.txt)
 autodnf --setopt install_weak_deps=False install $(from_file build_scripts/host-no-weak-deps.txt)
 
-# IDK why Steam installs this when it's not needed. TODO: figure out why
-autodnf remove libnsl.x86_64
-
 # Make /opt part of the image, not machine-local state
 rm /opt
 mkdir /opt
@@ -55,7 +52,12 @@ systemctl disable nvidia-powerd.service
 systemctl disable plocate-updatedb.timer
 
 # If it tries to autoremove, something went wrong.
-dnf --assumeno autoremove
+# The exclusion for libnsl.x86_64 comes from steam installing libnsl.i686. DNF5 seems to
+# want x86_64 versions of every package installed as a dependency. Rather than fight it,
+# we'll just ignore it.
+dnf autoremove --assumeno \
+    --exclude libnsl.x86_64
+
 dnf clean all
 rm -r /var/*
 bootc container lint
