@@ -30,8 +30,8 @@ autodnf "do" --action=remove \
 autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
 
 # Host packages
-autodnf install $(from_file build_scripts/host.txt)
-autodnf --setopt install_weak_deps=False install $(from_file build_scripts/host-no-weak-deps.txt)
+autodnf install $(from_file build_scripts/packages.txt)
+autodnf --setopt install_weak_deps=False install $(from_file build_scripts/packages_no_weak_deps.txt)
 
 # Make /opt part of the image, not machine-local state
 rm /opt

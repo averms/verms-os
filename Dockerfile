@@ -21,7 +21,7 @@ RUN --mount=type=bind,src=/build_scripts/nvidia.sh,dst=/build_scripts/nvidia.sh 
 FROM base AS verms-os
 RUN --mount=type=bind,src=/build_scripts/final.sh,dst=/build_scripts/final.sh \
     --mount=type=bind,src=/build_scripts/_lib.sh,dst=/build_scripts/_lib.sh \
-    --mount=type=bind,src=/build_scripts/host.txt,dst=/build_scripts/host.txt \
-    --mount=type=bind,src=/build_scripts/host-no-weak-deps.txt,dst=/build_scripts/host-no-weak-deps.txt \
+    --mount=type=bind,src=/build_scripts/packages.txt,dst=/build_scripts/packages.txt \
+    --mount=type=bind,src=/build_scripts/packages_no_weak_deps.txt,dst=/build_scripts/packages_no_weak_deps.txt \
     --mount=type=bind,from=kmod-builder,src=/var/cache/akmods,dst=/tmp/kmods \
     sh /build_scripts/final.sh
