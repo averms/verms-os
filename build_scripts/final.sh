@@ -26,6 +26,9 @@ autodnf "do" --action=remove \
     libavutil-free \
     --action=install ffmpeg-libs
 
+# NVIDIA drivers
+autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
+
 # Make /opt part of the image, not machine-local state. Necessary to install Google
 # Chrome
 rm /opt
@@ -40,6 +43,7 @@ mkdir /nix
 # Systemd
 systemctl disable avahi-daemon.service
 systemctl disable flatpak-add-fedora-repos.service
+systemctl disable nvidia-powerd.service
 systemctl enable bootc-fetch-apply-updates.timer
 systemctl enable tailscaled.service
 
