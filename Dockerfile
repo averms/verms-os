@@ -5,6 +5,7 @@ FROM quay.io/fedora-ostree-desktops/silverblue:42 AS base
 RUN --mount=type=bind,src=/build_scripts/base.sh,dst=/build_scripts/base.sh \
     --mount=type=bind,src=/build_scripts/_lib.sh,dst=/build_scripts/_lib.sh \
     --mount=type=bind,src=/system_files,dst=/system_files \
+    --mount=type=cache,dst=/var/cache \
     sh /build_scripts/base.sh
 
 # The second stage builds nvidia-kmod.
