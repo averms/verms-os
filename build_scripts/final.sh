@@ -26,9 +26,6 @@ autodnf "do" --action=remove \
     libavutil-free \
     --action=install ffmpeg-libs
 
-# NVIDIA drivers
-autodnf install "/tmp/kmods/nvidia/kmod-nvidia-${kernel_ver}"*.rpm
-
 # Host packages
 autodnf install $(from_file build_scripts/packages.txt)
 autodnf --setopt install_weak_deps=False install $(from_file build_scripts/packages_no_weak_deps.txt)
@@ -48,7 +45,6 @@ systemctl enable tailscaled.service
 systemctl enable bootc-fetch-apply-updates.timer
 systemctl disable avahi-daemon.service
 systemctl disable flatpak-add-fedora-repos.service
-systemctl disable nvidia-powerd.service
 systemctl disable plocate-updatedb.timer
 
 # If it tries to autoremove, something went wrong.
