@@ -3,6 +3,7 @@ gnome-session-xsession
 xorg-x11-drivers
 
 # Packages I want on the host.
+code
 distrobox
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
