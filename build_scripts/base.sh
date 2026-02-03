@@ -30,3 +30,8 @@ ver="$(rpm -E %fedora)"
 autodnf install \
     "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-${ver}.noarch.rpm" \
     "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${ver}.noarch.rpm"
+
+# Use only HTTPS mirrors.
+for repo in /etc/yum.repos.d/*.repo; do
+    sed -i 's/metalink?/metalink?protocol=https\&/g' "$repo"
+done
