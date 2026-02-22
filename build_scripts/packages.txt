@@ -8,13 +8,9 @@ distrobox
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
 google-noto-fonts-all-vf
-libva-utils
 man-pages-posix
 steam
 tailscale
-
-# Don't remember why we're not using Homebrew
-smartmontools
 
 # Could be run in Docker but this is easier
 syncthing
