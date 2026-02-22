@@ -1,0 +1,1 @@
+Defaults secure_path = /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/bin:/usr/bin
