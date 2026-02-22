@@ -12,6 +12,9 @@ man-pages-posix
 steam
 tailscale
 
+# Debugging GPU stuff
+libva-utils
+
 # Could be run in Docker but this is easier
 syncthing
 
