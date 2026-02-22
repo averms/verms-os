@@ -7,20 +7,25 @@ code
 distrobox
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
-google-chrome-stable
 google-noto-fonts-all-vf
 libva-utils
 man-pages-posix
-smartmontools
 steam
-syncthing
 tailscale
-libbpf-tools
+
+# Don't remember why we're not using Homebrew
+smartmontools
+
+# Could be run in Docker but this is easier
+syncthing
+
+# Sandbox not as secure when running inside Flatpak
+google-chrome-stable
 
 # Needed for Cemu
 mesa-libGLU
 
-# Keep kernel-modules-extra.
+# Keep kernel-modules-extra
 kernel-modules-extra-matched
 
 # gcc is needed because of Homebrew bug. See
@@ -28,6 +33,9 @@ kernel-modules-extra-matched
 # because clang from Homebrew uses it. So just install the full gcc-c++ package.
 gcc-c++
 
-# Needed because Homebrew version is deficient in some way.
+# Needed because Homebrew version is deficient in some way
 netcat
 strace
+
+# For profiling, not on Homebrew
+libbpf-tools
