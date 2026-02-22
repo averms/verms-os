@@ -15,6 +15,7 @@ smartmontools
 steam
 syncthing
 tailscale
+libbpf-tools
 
 # Needed for Cemu
 mesa-libGLU
