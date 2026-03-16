@@ -14,10 +14,10 @@ This is probably only useful if you're me.
 
 ### By rebasing
 
-Install Fedora Silverblue 42 first. Then run
+Install Fedora Silverblue 43 first. Then run
 
 ```
-bootc switch ghcr.io/averms/verms-os:latest
+bootc switch ghcr.io/averms/verms-os:next
 ```
 
 Then reboot.

@@ -1,7 +1,7 @@
 # The first stage copies my configuration from system_files/ over and adds DNF
 # repositories.
 
-FROM quay.io/fedora-ostree-desktops/silverblue:42 AS base
+FROM quay.io/fedora-ostree-desktops/silverblue:43 AS base
 RUN --mount=type=bind,src=/build_scripts/base.sh,dst=/build_scripts/base.sh \
     --mount=type=bind,src=/build_scripts/_lib.sh,dst=/build_scripts/_lib.sh \
     --mount=type=bind,src=/system_files,dst=/system_files \
