@@ -3,7 +3,7 @@ set -eu
 shopt -s inherit_errexit
 
 image_repo=ghcr.io/averms
-image_id=verms-os:next
+image_id=verms-os:latest
 
 build() {
     _oci --tag "${image_id}" .

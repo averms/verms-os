@@ -17,7 +17,7 @@ This is probably only useful if you're me.
 Install Fedora Silverblue 43 first. Then run
 
 ```
-bootc switch ghcr.io/averms/verms-os:next
+bootc switch ghcr.io/averms/verms-os:latest
 ```
 
 Then reboot.
