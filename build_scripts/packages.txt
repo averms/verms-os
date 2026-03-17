@@ -11,6 +11,9 @@ tailscale
 # Debugging GPU stuff
 libva-utils
 
+# Debugging XWayland stuff
+xlsclients
+
 # Could be run in Docker but this is easier
 syncthing
 
