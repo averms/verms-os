@@ -32,6 +32,11 @@ autodnf "do" --action=remove \
 rm /opt
 mkdir /opt
 
+# Use LTS kernel
+autodnf copr enable kwizart/kernel-longterm-6.18
+autodnf install kernel-longterm
+autodnf remove kernel kernel-core kernel-modules kernel-modules-core
+
 # Host packages
 autodnf install $(from_file build_scripts/packages.txt)
 autodnf --setopt install_weak_deps=False install $(from_file build_scripts/packages_no_weak_deps.txt)
