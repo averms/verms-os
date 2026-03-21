@@ -11,6 +11,7 @@ autodnf remove \
     bind-utils \
     gnome-tour \
     gnome-user-share \
+    kernel-modules-extra \
     nano \
     ntfs-3g ntfsprogs \
     tree
