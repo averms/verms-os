@@ -11,7 +11,6 @@ autodnf remove \
     bind-utils \
     gnome-tour \
     gnome-user-share \
-    kernel-modules-extra \
     nano \
     ntfs-3g ntfsprogs \
     tree
@@ -34,8 +33,8 @@ mkdir /opt
 
 # Use LTS kernel
 autodnf copr enable kwizart/kernel-longterm-6.18
-autodnf install kernel-longterm
-autodnf remove kernel kernel-core kernel-modules kernel-modules-core
+autodnf install kernel-longterm kernel-longterm-modules-extra
+autodnf remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
 
 # Host packages
 autodnf install $(from_file build_scripts/packages.txt)
