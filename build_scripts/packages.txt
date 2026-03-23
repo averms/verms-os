@@ -1,3 +1,7 @@
+# Xorg because only wayland is installed by default.
+gnome-session-xsession
+xorg-x11-drivers
+
 # Packages I want on the host.
 code
 distrobox
