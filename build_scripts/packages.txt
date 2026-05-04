@@ -12,6 +12,9 @@ man-pages-posix
 steam
 tailscale
 
+# The Flathub Flatpak is not compatible with GNOME 48
+sushi
+
 # Debugging GPU stuff
 libva-utils
 
