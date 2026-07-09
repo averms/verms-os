@@ -16,7 +16,7 @@ autodnf remove \
     tree
 
 # Codecs
-autodnf swap mesa-va-drivers mesa-va-drivers-freeworld
+autodnf install mesa-va-drivers-freeworld
 autodnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
 autodnf "do" --action=remove \
     ffmpeg-free \
