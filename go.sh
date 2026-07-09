@@ -6,7 +6,7 @@ image_repo=ghcr.io/averms
 image_id=verms-os:latest
 
 build() {
-    _oci --tag "${image_id}" .
+    _oci --platform linux/amd64 --tag "${image_id}" .
 }
 
 push-verms() {
