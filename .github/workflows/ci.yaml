@@ -25,6 +25,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - run: podman info
+        name: Print Podman version and other info
+
       - run: echo 'RUN rmdir /build_scripts' >> Dockerfile
         name: Patch Dockerfile to work around old Podman bug
 
