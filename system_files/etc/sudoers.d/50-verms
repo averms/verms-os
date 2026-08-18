@@ -1,1 +1,2 @@
-anon ALL=(ALL) NOPASSWD:ALL
+Defaults timestamp_type = ppid
+Defaults timestamp_timeout = 10
