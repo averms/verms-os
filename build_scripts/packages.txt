@@ -1,6 +1,5 @@
 # Packages I want on the host.
 code
-discord
 distrobox
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
@@ -8,9 +7,6 @@ google-noto-fonts-all-vf
 man-pages-posix
 steam
 tailscale
-
-# The Flathub Flatpak is not compatible with GNOME 48
-sushi
 
 # Debugging GPU stuff
 libva-utils

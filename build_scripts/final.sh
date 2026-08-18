@@ -44,12 +44,7 @@ systemctl enable bootc-fetch-apply-updates.timer
 systemctl enable tailscaled.service
 
 # If it tries to autoremove, something went wrong.
-# The exclusions come from steam installing libnsl.i686 and libXScrnSaver.i686. DNF5
-# seems to want x86_64 versions of every package installed as a dependency. Rather than
-# fight it, we'll just ignore it.
-dnf autoremove --assumeno \
-    --exclude libnsl.x86_64 \
-    --exclude libXScrnSaver.x86_64
+dnf autoremove --assumeno
 
 dnf clean all
 rm -r /var/*
