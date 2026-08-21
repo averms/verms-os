@@ -9,6 +9,7 @@ steam
 tailscale
 
 # Debugging GPU stuff
+drm_info
 libva-utils
 
 # Debugging XWayland stuff
