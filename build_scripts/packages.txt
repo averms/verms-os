@@ -25,7 +25,7 @@ google-chrome-stable
 mesa-libGLU
 
 # Keep kernel-modules-extra
-kernel-modules-extra-matched
+kernel-longterm-modules-extra-matched
 
 # gcc is needed because of Homebrew bug. See
 # https://github.com/orgs/Homebrew/discussions/5627. libstdc++-devel is also needed
