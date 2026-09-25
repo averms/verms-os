@@ -47,7 +47,7 @@ _image() {
         -v ./output:/output \
         -v "${config}:/config.toml:ro" \
         -v /var/lib/containers/storage:/var/lib/containers/storage \
-        quay.io/centos-bootc/bootc-image-builder:latest \
+        ghcr.io/osbuild/bootc-image-builder:latest \
         "$@"
 }
 
