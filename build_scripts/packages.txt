@@ -9,7 +9,9 @@ tailscale
 
 # Debugging GPU stuff
 drm_info
+libdrm-devel
 libva-utils
+umr
 
 # Debugging XWayland stuff
 xlsclients
