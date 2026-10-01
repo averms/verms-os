@@ -13,9 +13,6 @@ libdrm-devel
 libva-utils
 umr
 
-# Debugging XWayland stuff
-xlsclients
-
 # Could be run in Docker but this is easier
 syncthing
 
@@ -33,9 +30,11 @@ kernel-modules-extra-matched
 # because clang from Homebrew uses it. So just install the full gcc-c++ package.
 gcc-c++
 
-# Needed because Homebrew version is deficient in some way
+# This is OpenBSD netcat while the Homebrew one is GNU
 netcat
+
+# Homebrew version might have some issues when it doesn't match your kernel?
 strace
 
-# For profiling, not on Homebrew
+# For profiling native programs, not on Homebrew
 libbpf-tools
