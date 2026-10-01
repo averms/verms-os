@@ -15,16 +15,17 @@ autodnf remove \
     ntfs-3g ntfsprogs \
     tree
 
-# Codecs
-autodnf install mesa-va-drivers-freeworld
-autodnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
+# Codecs and graphics
 autodnf "do" --action=remove \
     ffmpeg-free \
     libavcodec-free \
     libavfilter-free \
     libavformat-free \
     libavutil-free \
-    --action=install ffmpeg-libs
+    --action=install ffmpeg-libs \
+    --action=remove mesa-vulkan-drivers \
+    --action=install mesa-vulkan-drivers-freeworld \
+    mesa-va-drivers-freeworld \
 
 # Make /opt part of the image, not machine-local state. Necessary to install Google
 # Chrome
