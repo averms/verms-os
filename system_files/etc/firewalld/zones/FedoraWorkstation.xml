@@ -2,15 +2,10 @@
 <zone>
   <short>Outside Tailscale</short>
   <description>
-    Tailscale is allowed. Incoming packets that are related to outgoing
-    network connections are accepted. Outgoing network connections are
-    allowed.
+    Syncthing and Monero are allowed. The Tailscale port is open to make direct
+    connections easier. Incoming packets that are related to outgoing network
+    connections are accepted. Outgoing network connections are allowed.
   </description>
-
-  <!-- Not used right now -->
-  <!-- <service name="mdns"/> -->
-  <!-- <service name="ssdp"/> -->
-  <!-- <service name="netbios-ns"/> -->
 
   <service name="dhcpv6-client" />
   <service name="syncthing" />
