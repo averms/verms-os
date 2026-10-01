@@ -19,9 +19,6 @@ syncthing
 # Sandbox not as secure when running inside Flatpak
 google-chrome-stable
 
-# Needed for Cemu
-mesa-libGLU
-
 # Keep kernel-modules-extra
 kernel-modules-extra-matched
 

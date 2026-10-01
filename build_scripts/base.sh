@@ -10,7 +10,8 @@ cp --no-target-directory -vR system_files /
 # Mark only leaves as user-installed.
 autodnf mark dependency '*' >/dev/null
 autodnf mark user $(dnf repoquery --leaves) >/dev/null
-autodnf mark user fwupd rpm-ostree qemu-user-static-aarch64
+# Also mark clearly useful packages as user-installed
+autodnf mark user fwupd rpm-ostree qemu-user-static-aarch64 mesa-libGLU
 
 # Enable google-chrome and disable fedora-cisco-openh264.
 # We don't use config-manager setopt because rpm-ostree doesn't notice it.
