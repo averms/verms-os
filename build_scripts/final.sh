@@ -25,7 +25,7 @@ autodnf "do" --action=remove \
     --action=install ffmpeg-libs \
     --action=remove mesa-vulkan-drivers \
     --action=install mesa-vulkan-drivers-freeworld \
-    mesa-va-drivers-freeworld \
+    mesa-va-drivers-freeworld
 
 # Make /opt part of the image, not machine-local state. Necessary to install Google
 # Chrome
