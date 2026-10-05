@@ -35,3 +35,5 @@ strace
 
 # For profiling native programs, not on Homebrew
 libbpf-tools
+
+nix

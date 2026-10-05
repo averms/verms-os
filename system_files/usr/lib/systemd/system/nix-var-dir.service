@@ -1,0 +1,10 @@
+# Tmpfiles runs too late
+[Unit]
+Description=Create /var/nix for the /nix bind mount
+DefaultDependencies=no
+RequiresMountsFor=/var
+Before=nix.mount
+
+[Service]
+Type=oneshot
+ExecStart=mkdir -p /var/nix
