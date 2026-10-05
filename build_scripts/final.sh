@@ -44,6 +44,7 @@ systemctl enable tailscaled.service
 systemctl enable nix.mount
 systemctl enable nix-daemon.socket
 
+printf "\n!include nix.custom.conf\n" >>/etc/nix/nix.conf
 # SELinux has no rules for /nix, so everything there is labelled default_t. Our
 # shells and nix-daemon are unconfined so that mostly works, but various other
 # things dont:
