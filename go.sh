@@ -21,15 +21,11 @@ push-verms() {
 }
 
 build-qcow2() {
-    _image ./qemu_config.toml \
-        build \
-        --use-librepo --rootfs xfs --type qcow2 "${image_repo}/${image_id}"
+    _image ./qemu_config.toml qcow2 "$@"
 }
 
 build-iso() {
-    _image ./iso_config.toml \
-        build \
-        --use-librepo --rootfs xfs --type anaconda-iso "${image_repo}/${image_id}"
+    _image ./iso_config.toml anaconda-iso "$@"
 }
 
 _oci() {
@@ -37,10 +33,15 @@ _oci() {
 }
 
 _image() {
-    local config="$1"
-    shift
+    local config="$1" type="$2" image
+    shift 2
 
-    sudo podman pull "${image_repo}/${image_id}"
+    if [[ "${1:-}" == --local ]]; then
+        image="localhost/${image_id}"
+    else
+        image="${image_repo}/${image_id}"
+        sudo podman pull "${image}"
+    fi
     sudo podman run --pull=newer --rm -it --privileged --security-opt label=disable \
         -v rpmmd:/rpmmd \
         -v osbuild:/store \
@@ -48,7 +49,7 @@ _image() {
         -v "${config}:/config.toml:ro" \
         -v /var/lib/containers/storage:/var/lib/containers/storage \
         ghcr.io/osbuild/bootc-image-builder:latest \
-        "$@"
+        build --use-librepo --rootfs xfs --type "${type}" "${image}"
 }
 
 help() {
