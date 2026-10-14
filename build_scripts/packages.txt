@@ -1,5 +1,4 @@
 # Packages I want on the host.
-distrobox
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
 google-noto-fonts-all-vf
@@ -27,13 +26,7 @@ kernel-modules-extra-matched
 # because clang from Homebrew uses it. So just install the full gcc-c++ package.
 gcc-c++
 
-# This is OpenBSD netcat while the Homebrew one is GNU
-netcat
-
-# Homebrew version might have some issues when it doesn't match your kernel?
-strace
-
-# For profiling native programs, not on Homebrew
+# For profiling native programs, not on Homebrew or nixpkgs
 libbpf-tools
 
 nix
