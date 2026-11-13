@@ -1,0 +1,9 @@
+polkit.addRule(function (action, subject) {
+  if (
+    (action.id == "org.freedesktop.login1.set-self-linger" ||
+      action.id == "org.freedesktop.login1.set-user-linger") &&
+    subject.user != "root"
+  ) {
+    return polkit.Result.NO;
+  }
+});
