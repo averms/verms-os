@@ -6,12 +6,6 @@ man-pages-posix
 steam
 tailscale
 
-# Debugging GPU stuff
-drm_info
-libdrm-devel
-libva-utils
-umr
-
 # Could be run in Docker but this is easier
 syncthing
 
