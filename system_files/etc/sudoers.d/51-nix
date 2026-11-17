@@ -1,0 +1,1 @@
+Defaults secure_path = /home/anon/.local/state/nix/profile/bin:/usr/local/bin:/usr/bin
