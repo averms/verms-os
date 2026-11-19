@@ -6,7 +6,13 @@ image_repo=ghcr.io/averms
 image_id=verms-os:latest
 
 build() {
-    _oci --platform linux/amd64 --tag "${image_id}" .
+    local revision
+    revision=$(git rev-parse HEAD)
+    if [[ -n "$(git status --porcelain=v2)" ]]; then
+        revision+=-dirty
+    fi
+    _oci --platform linux/amd64 --tag "${image_id}" \
+        --label "org.opencontainers.image.revision=${revision}" .
 }
 
 push-verms() {
