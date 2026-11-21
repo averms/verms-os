@@ -2,6 +2,7 @@
 gnome-shell-extension-appindicator
 gnome-shell-extension-auto-move-windows
 google-noto-fonts-all-vf
+keepassxc
 man-pages-posix
 steam
 tailscale
